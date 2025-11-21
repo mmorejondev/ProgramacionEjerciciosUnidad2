@@ -8,7 +8,7 @@ public class Ejercicio832bis {
 	public static int[] crearArrayAleatorios(int tam, int limite) {
 		int [] devuelto = new int [tam];
 		Random generador = new Random();
-		for (int i=0;i<devuelto.length;i++) {
+		for (int i=0;i<tam;i++) {
 			devuelto[i]=generador.nextInt(limite);
 		}
 		return devuelto;
@@ -26,6 +26,7 @@ public class Ejercicio832bis {
 		int [] array1 = crearArrayAleatorios(tam, limite);
 		
 		System.out.println();
+		
 		for (int i=0;i<tam;i++) {
 			System.out.print("[" + array1[i] +"]");
 		}
