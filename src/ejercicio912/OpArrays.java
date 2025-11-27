@@ -38,6 +38,20 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 		return encontrado;
 	} 
 	public static int calcularMinimo(int[] array) {
+		int minimo=array[0];
+		for (int i=0;i<array.length;i++) {
+			if (array[i] < minimo) {
+				minimo=array[i];
+			} 
+		}
+
+		return minimo;
+		
+	}
+	/*Este método es un método auxiliar que usamos para ordenar un array.
+	 * El método obtiene el mínimo del array, pero modifica el array para ser utilizado 
+	 * ya modificado en sucesivas llamadas desde el método ordenarArray*/
+	public static int buscarMinimo(int[] array) {
 		int minimo=Integer.MAX_VALUE;
 		int posicionMinimo=-1;
 		for (int i=0;i<array.length;i++) {
@@ -51,11 +65,12 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 		return minimo;
 		
 	}
+	
 	public static void ordenarArray(int[] array) {
 		
 		int [] ordenado = new int [array.length];
 		for (int i=0;i<ordenado.length;i++) {
-			ordenado[i]=calcularMinimo(array);
+			ordenado[i]=buscarMinimo(array);
 			
 
 		}

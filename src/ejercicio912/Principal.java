@@ -7,8 +7,9 @@ public class Principal {
 		int [] array = new int [10];
 		OpArrays.insertarAleatorios(array, 10, 50);
 		OpArrays.imprimirArray(array);
+		System.out.println("\nEl minimo es: " + OpArrays.calcularMinimo(array));
 		OpArrays.ordenarArray(array);
-		System.out.println();
+		System.out.println("\nArray ordenado: ");
 		OpArrays.imprimirArray(array);
 		
 	}
