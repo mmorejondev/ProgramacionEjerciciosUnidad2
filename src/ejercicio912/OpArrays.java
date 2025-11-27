@@ -39,11 +39,15 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 	} 
 	public static int calcularMinimo(int[] array) {
 		int minimo=Integer.MAX_VALUE;
+		int posicionMinimo=-1;
 		for (int i=0;i<array.length;i++) {
 			if (array[i] < minimo) {
 				minimo=array[i];
+				posicionMinimo=i;
 			} 
 		}
+		array[posicionMinimo]=Integer.MAX_VALUE;
+
 		return minimo;
 		
 	}
@@ -52,9 +56,12 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 		int [] ordenado = new int [array.length];
 		for (int i=0;i<ordenado.length;i++) {
 			ordenado[i]=calcularMinimo(array);
-			array[i]=Integer.MAX_VALUE;
+			
 
 		}
+		/*Dado que cuando estamos calculando el mínimo
+		 * estamos modificando el array, volcamos sobre el array
+		 * pasado como parámetro los datos del array ordenado*/
 		for (int i=0;i<array.length;i++) {
 			array[i]=ordenado[i];
 		}
