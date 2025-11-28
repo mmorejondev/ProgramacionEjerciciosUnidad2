@@ -10,7 +10,7 @@ void insertarAleatorios(int [] array, int minimo, int maximo): Recibe un array d
 Recibe un array de enteros y un elemento a buscar. Devuelve true si el elemento está presente en el array, de lo contrario, devuelve false.
 int calcularMaximo(int[] array): Recibe un array de enteros y devuelve el valor máximo.
 int calcularMinimo(int[] array): Recibe un array de enteros y devuelve el valor mínimo.
-: Recibe un array de enteros y lo ordena de forma ascendente.
+Recibe un array de enteros y lo ordena de forma ascendente.
 double calcularMedia(int[] array): Recibe un array de enteros y devuelve la media de los elementos.
 int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es decir, el valor que más veces se repite.
 */
@@ -48,6 +48,17 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 		return minimo;
 		
 	}
+	public static int calcularMaximo(int[] array) {
+		int maximo=array[0];
+		for (int i=0;i<array.length;i++) {
+			if (array[i] > maximo) {
+				maximo=array[i];
+			} 
+		}
+
+		return maximo;
+		
+	}
 	/*Este método es un método auxiliar que usamos para ordenar un array.
 	 * El método obtiene el mínimo del array, pero modifica el array para ser utilizado 
 	 * ya modificado en sucesivas llamadas desde el método ordenarArray*/
@@ -71,8 +82,6 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 		int [] ordenado = new int [array.length];
 		for (int i=0;i<ordenado.length;i++) {
 			ordenado[i]=buscarMinimo(array);
-			
-
 		}
 		/*Dado que cuando estamos calculando el mínimo
 		 * estamos modificando el array, volcamos sobre el array
@@ -80,9 +89,51 @@ int calcularModa(int[] array): Recibe un array de enteros y devuelve la moda, es
 		for (int i=0;i<array.length;i++) {
 			array[i]=ordenado[i];
 		}
+			
+	}
+	
+	public static float calcularMedia(int [] array) {
+		
+		float media=0.0f;
+		float suma=0.0f;
+		for (int i=0;i<array.length;i++) {
+			suma = suma + array[i];
+		}
+		media = suma / array.length;
+		return media;
+	}
+	
+	public static int moda(int [] array) {
+		int moda=0;
+		int minimo=calcularMinimo(array);
+		int maximo=calcularMaximo(array);
+		System.out.println();
+		
+		int [] contadores = new int[101];
+		
+		for (int i=0;i<array.length;i++) {
+			contadores[array[i]]++;
+		}
+		
+		int maximoRepeticiones = calcularMaximo(contadores);
+		for (int i=0;i<contadores.length;i++) {
+			if (contadores[i]==maximoRepeticiones) {
+				moda=i;
+			}
+		}
 		
 		
+		
+		return moda;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

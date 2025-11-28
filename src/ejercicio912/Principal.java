@@ -4,13 +4,20 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		int [] array = new int [10];
-		OpArrays.insertarAleatorios(array, 10, 50);
-		OpArrays.imprimirArray(array);
-		System.out.println("\nEl minimo es: " + OpArrays.calcularMinimo(array));
-		OpArrays.ordenarArray(array);
+		int [] matriz = new int [100];
+		
+		OpArrays.insertarAleatorios(matriz, 1, 101);
+		
+		OpArrays.imprimirArray(matriz);
+		
+		System.out.println("\nEl minimo es: " + OpArrays.calcularMinimo(matriz));
+		OpArrays.ordenarArray(matriz);
+		
 		System.out.println("\nArray ordenado: ");
-		OpArrays.imprimirArray(array);
+		OpArrays.imprimirArray(matriz);
+		
+				
+		System.out.println("La moda es: " + OpArrays.moda(matriz));
 		
 	}
 
